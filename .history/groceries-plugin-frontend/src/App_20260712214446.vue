@@ -4,6 +4,5 @@ import Main from './components/Main.vue'
 </script>
 
 <template>
-  <!-- <HelloWorld /> -->
-  <Main />
+  <HelloWorld />
 </template>
