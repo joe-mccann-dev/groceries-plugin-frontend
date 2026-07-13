@@ -30,14 +30,11 @@ onMounted(fetchItems)
 
             <div v-if="loading">loading items . . .</div>
             <div v-else-if="error">{{ error }}</div>
-
             <div v-else>
                 <ul v-for="(list, key, index) in items">
-                    <div >
-                        <li v-for="item in list">
-                            {{ item.quantity }} {{ item.item_name }}
-                        </li>
-                    </div>
+                    <li v-for="item in list">
+                        <div>{{ item.item_name }} <span>[{{ item.quantity }}]</span></div>
+                    </li>
                 </ul>
             </div>
         </div>
