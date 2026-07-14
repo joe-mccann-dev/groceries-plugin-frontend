@@ -45,8 +45,9 @@ onMounted(fetchItems)
                 <div v-else-if="error">{{ error }}</div>
                 <div v-else>
                     <ul v-for="(list, key, index) in items">
-                        <li v-for="item in list">
-                            <div>{{ item.item_name }} <span>[{{ item.quantity }}]</span></div>
+                        <li class="grid" v-for="item in list">
+                            <div>{{ item.item_name }}</div>
+                            <div>{{ item.quantity }}</div>
                         </li>
                     </ul>
                 </div>
