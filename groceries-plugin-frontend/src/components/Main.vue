@@ -32,6 +32,18 @@ const addItem = async (groceryToAdd, groceryQuantity) => {
     }
 }
 
+const deleteItem = async(itemName) => {
+    try {
+        console.log("itemName: ", itemName)
+        const response = await axios.delete(`http://127.0.0.1:8000/items/${itemName}`)
+        console.log(response.data)
+    } catch(err) {
+        alert(`failed to delete item: error ${err.message}`)
+    } finally {
+        fetchItems()
+    }
+}
+
 onMounted(fetchItems)
 </script>
 
@@ -48,6 +60,7 @@ onMounted(fetchItems)
                         <li class="grid" v-for="item in list">
                             <div>{{ item.item_name }}</div>
                             <div>{{ item.quantity }}</div>
+                            <button class="secondary" @click="deleteItem(item.item_name)">remove</button>
                         </li>
                     </ul>
                 </div>
